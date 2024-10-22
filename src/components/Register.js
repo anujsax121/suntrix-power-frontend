@@ -5,10 +5,12 @@ import logo from '../assets/logo.png';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
 
-const Login = () => {
+const Register = () => {
     const [user, setUser] = useState({
         username: '',
-        password: ''
+        password: '',
+        email: '',
+        phone: ''
     });
     const [error, setError] = useState(''); // State for error messages
     const navigate = useNavigate(); // Hook for programmatic navigation
@@ -21,18 +23,17 @@ const Login = () => {
         }));
     };
 
-    const login = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        LoginService.login(user)
+        LoginService.register(user)
             .then(response => {
-                console.log('User successfully logged in!', response.data);
-                // Store the token or user data if needed
-                localStorage.setItem('token', response); // Example token storage
-
+                console.log('User successfully registered!', response.data);
+                // Optionally navigate to login or home page
+                navigate('/login'); // Redirect to login page after successful registration
             })
             .catch(error => {
-                console.error('Login error:', error);
-                setError('Invalid username or password'); // Set error message
+                console.error('Registration error:', error);
+                setError('Registration failed: ' + (error.response?.data?.message || 'Unknown error')); // Set error message
             });
     };
 
@@ -47,15 +48,28 @@ const Login = () => {
                             </div>
                             <div className='logininnerForm'>
                                 {error && <div className="alert alert-danger">{error}</div>} {/* Error message display */}
-                                <Form onSubmit={login} className='customLoginForm formProductnew'>
-                                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                                        <Form.Label>Email address</Form.Label>
+                                <Form onSubmit={handleSubmit} className='customLoginForm formProductnew'>
+                                    <Form.Group className="mb-3" controlId="formBasicUsername">
+                                        <Form.Label>Username</Form.Label>
                                         <Form.Control
                                             type="text"
                                             name="username"
                                             placeholder="Enter User Name"
                                             value={user.username}
                                             onChange={handleChange} // Update state on change
+                                            required // Make the field required
+                                        />
+                                    </Form.Group>
+
+                                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                                        <Form.Label>Email address</Form.Label>
+                                        <Form.Control
+                                            type="email"
+                                            name="email"
+                                            placeholder="Enter Email"
+                                            value={user.email}
+                                            onChange={handleChange} // Update state on change
+                                            required // Make the field required
                                         />
                                     </Form.Group>
 
@@ -67,11 +81,24 @@ const Login = () => {
                                             placeholder="Password"
                                             value={user.password}
                                             onChange={handleChange} // Update state on change
+                                            required // Make the field required
+                                        />
+                                    </Form.Group>
+
+                                    <Form.Group className="mb-3" controlId="formBasicPhone">
+                                        <Form.Label>Phone Number</Form.Label>
+                                        <Form.Control
+                                            type="text"
+                                            name="phone"
+                                            placeholder="Enter Phone Number"
+                                            value={user.phone}
+                                            onChange={handleChange} // Update state on change
+                                            required // Make the field required
                                         />
                                     </Form.Group>
 
                                     <Button variant="primary" type="submit">
-                                        Submit
+                                        Register
                                     </Button>
                                 </Form>
                             </div>
@@ -83,4 +110,4 @@ const Login = () => {
     );
 }
 
-export default Login;
+export default Register;
