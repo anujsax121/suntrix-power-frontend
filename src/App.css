@@ -1,38 +1,242 @@
-.App {
-  text-align: center;
-}
+/*  Custom Css */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.greenColorHead table, body{
+  font-family: "Poppins", serif;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.greenColorHead thead tr th{
+  background: #014780;
+  
+  color: #fff;
+}
+.btns{box-shadow: none;
+  border: 0;
+  background: transparent;
+}
+.btns i{
+  color: #f00;
+}
+.newTableSearch .titleWrapper{
+  display: none;
+}
+.customPaginationBtns {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 15px;
+}
+.custmnav {
+  /* background: #014780 !important; */
+  padding: 9px 0px;
+
+}
+.custmnav .navbar-nav a {
+    font-size: 17px;
+    font-weight: 500;
+    color: #014780;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+}
+.custmnav a.navbar-brand {
+  color: #fff !important;
+  font-family: inherit;
+  font-size: 25px;
+  font-weight: 900;
+}
+.sidebarSection{
+  background-color: rgb(255, 255, 255) !important;
+  height: 100vh;
+  padding: 25px 5px;
+  border-right: 1px solid #f1f1f1;
+}
+.formProduct{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:15px;
+}
+.formProduct .firstColumn {
+  grid-column: span 3; 
+}
+.titleHeading {
+  font-size: 24px;
+  font-weight: 600;
+  color: #014780;
+  letter-spacing: 0;
+  position: relative;
+  font-style: italic;
+}
+.addprobtn{
+  width:100%;
+  padding: 11px 15px;
+  border-radius: 25px;
+  font-weight: 500;
+  max-width: 150px;
+  background: #014780;
+}
+.addprobtn:hover {
+  border-color: #014780;
+  background: transparent;
+  color: #014780;
+ 
+}
+.formProduct input, .formProductnew input {
+  padding: 11px 15px;
+}
+.formProduct label {
+  color: #014780;
+  font-weight: 400;
+}
+.prfileLogged {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+.prfileimg {
+  width:40px;
+  height:40px;
+  overflow: hidden;
+  border-radius: 100%;
+  border: 1px solid #ccc;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.prfileimg img {
+  width: 100%;
+}
+.prfiletxt h3 {
+  font-size: 17px;
+  margin-bottom: 0;
+}
+.logout a {
+  text-decoration: none;
+}
+.customPaginationBtns button {
+  width: 34px;
+  height: 34px;
+  border: 2px solid #014780;
+  border-radius: 35px;
+  font-size: 14px;
+  color: #014780;
+  cursor: pointer;
+}
+.customPaginationBtns button:hover, .customPaginationBtns span:hover{
+  background-color: #014780;
+  color: #fff;
+}
+.customPaginationBtns span {
+  height: 35px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 30px;
+  text-align: center;
+  width: auto;
+  float: left;
+  border: 2px solid #014780;
+  border-radius: 35px;
+  color: #014780;
+  overflow: hidden;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.titleHeading:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  background-color: #014780;
+  height: 2px;
+  bottom: -6px;
+  max-width: 140px;
+}
+
+
+
+
+
+/* Side Bar CSS */
+.sidebar {
+  height: 100vh;
+}
+.sidebar-menu {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar-menu li {
+  padding: 8px 16px;
+  text-align: left;
+}
+
+.sidebar-menu li a {
+  color: #014780;
+  text-decoration: none;
+  display: block;
+}
+.sidebarSection .sidebar ul li a {
+  width: 100%;
+  font-size: 19px;
+  padding: 26px 31px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-right: 3px solid transparent;
+}
+
+.sidebarSection .sidebar ul li {
+  padding: 0;
+}
+.customLogo {
+  width: 100px;
+}
+.sidebarSection .sidebar ul li a:hover, .sidebarSection .sidebar ul li a.active {
+  background-color: rgb(243 243 243);
+  color: rgb(68, 89, 110);
+  border-color:  #014780;
+}
+.sidebar-menu li a:hover {
+  background-color: #014780; 
+}
+
+
+/* Login */
+.customLoginForm {
+  background-color: #fff;
+  padding: 20px;
+  border-left: 1px solid #ddd;
+}
+.LoginForms, .LoginForms > .container, .customLgSec {
+  height: 100vh;
+}
+.logoSections {
+  text-align: center;
+}
+.LoginForms{
+  background:radial-gradient(#653d84, #332042);
+  position: relative;
+    background-size: 100% 100%;
+}
+/* .LoginForms:before {
+  content: "";
+  background: #000000bf;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+}
+.LoginForms > .container{
+  position: relative;
+  z-index: 1;
+} */
+.logininner {
+  width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 1px 4px 22px -8px #0004;
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: 1fr 1fr;
+  padding: 150px 100px;
+  gap: 15px;
 }
