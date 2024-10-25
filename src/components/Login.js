@@ -27,8 +27,12 @@ const Login = () => {
             .then(response => {
                 console.log('User successfully logged in!', response.data);
                 // Store the token or user data if needed
-                localStorage.setItem('token', response); // Example token storage
+                console.log("respone--->", response.data.token);
+                localStorage.setItem('token', response.data.token); // Example token storage
 
+                // Redirect to product list page
+             // Replace '/products' with your actual product list route
+      
             })
             .catch(error => {
                 console.error('Login error:', error);
