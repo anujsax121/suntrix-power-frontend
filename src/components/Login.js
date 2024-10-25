@@ -46,6 +46,7 @@ const Login = () => {
                                 <img src={logo} alt="logo" />
                             </div>
                             <div className='logininnerForm'>
+                                    <h3 className='text-center-login'>Login</h3>
                                 {error && <div className="alert alert-danger">{error}</div>} {/* Error message display */}
                                 <Form onSubmit={login} className='customLoginForm formProductnew'>
                                     <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -69,11 +70,17 @@ const Login = () => {
                                             onChange={handleChange} // Update state on change
                                         />
                                     </Form.Group>
-
+                                    <div className='btnflex'>
+                                        
                                     <Button variant="primary" type="submit">
                                         Submit
                                     </Button>
+                                    <p> <a href="#">Forget Password?</a></p>
+                                    </div>
                                 </Form>
+                                <div class="text-center pt-12 pb-12 btnflextext">
+                                    <p>Don't have an account? <a href="/register" class="underline font-semibold">Sign Up</a></p>
+                                </div>
                             </div>
                         </div>
                     </Col>

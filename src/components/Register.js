@@ -43,10 +43,13 @@ const Register = () => {
                 <Row className='align-items-center customLgSec'>
                     <Col lg={12}>
                         <div className='logininner'>
+
+                            
                             <div className='logoSections justify-content-center'>
                                 <img src={logo} alt="logo" />
                             </div>
                             <div className='logininnerForm'>
+                            <h3 className='text-center-login'>Register</h3>
                                 {error && <div className="alert alert-danger">{error}</div>} {/* Error message display */}
                                 <Form onSubmit={handleSubmit} className='customLoginForm formProductnew'>
                                     <Form.Group className="mb-3" controlId="formBasicUsername">
@@ -101,6 +104,10 @@ const Register = () => {
                                         Register
                                     </Button>
                                 </Form>
+                                <div class="text-center pt-12 pb-12 btnflextext">
+                                    <p>Have already an account?  <a href="/" class="underline font-semibold">Login here</a></p>
+                                </div>
+                                
                             </div>
                         </div>
                     </Col>
